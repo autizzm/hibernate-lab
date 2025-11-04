@@ -29,6 +29,13 @@ public class Developer {
         this.specialty = specialty;
         this.experience = experience;
     }
+
+    public Developer(String name, String specialty, Integer experience, Department department) {
+        this.name = name;
+        this.specialty = specialty;
+        this.experience = experience;
+    }
+
     public int getId() {
         return id;
     }

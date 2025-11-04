@@ -16,6 +16,7 @@ import org.hibernate.cfg.Configuration;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class DeveloperDAO {
     private final SessionFactory sessionFactory;
     private Session session;
@@ -135,6 +136,26 @@ public class DeveloperDAO {
     }
 
 
+    public List<Developer> findByExperienceEqual(Integer experience) {
+        Session session = sessionFactory.openSession();
+        session.getTransaction();
+        List<Developer> devs = session.createQuery(String.format("FROM Developer WHERE experience %d;", experience), Developer.class).getResultList();
+        session.getTransaction().commit();
+        session.close();
+        return devs;
+    }
 
+    public List<Developer> findByExperienceEqualCriteria(Integer experience) {
+        Session session = sessionFactory.openSession();
+        session.getTransaction().begin();
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<Developer> criteria = cb.createQuery(Developer.class);
+        Root<Developer> root = criteria.from(Developer.class);
+        criteria.select(root).where(cb.gt(root.get("experience"), experience));
+        List<Developer> devs = session.createQuery(criteria).getResultList();
+        session.getTransaction().commit();
+        session.close();
+        return devs;
+    }
 }
 

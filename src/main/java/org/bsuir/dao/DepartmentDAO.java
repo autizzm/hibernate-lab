@@ -81,5 +81,14 @@ public class DepartmentDAO {
         session.close();
     }
 
+    public List<Department> findDepartmentByLetterInID(char character){
+        Session session = sc.getSessionFactory().openSession();
+        session.getTransaction();
+        List<Department> depts = session.createQuery(String.format("FROM Department WHERE experience LIKE %%%s%%;", character), Department.class).getResultList();
+        session.getTransaction().commit();
+        session.close();
+        return depts;
+    }
+
 
 }
