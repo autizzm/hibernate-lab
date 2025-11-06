@@ -39,7 +39,7 @@ If your credentials are `root`-`root` -> no need to change them. (Mine are too:)
 ---
 ### If you want to change DB to Postgres
 
-replace this:
+In pom.xml replace this:
 ```xml
     <dependency>
     <groupId>com.mysql</groupId>
@@ -104,7 +104,7 @@ mysql -u <your_user_name> -p < <path_to_file_on_your_pc>/initDB.sql
 mysql -u <your_user_name> -p < <path_to_file_on_your_pc>/populateDB.sql
 ```
 
-How the command looks on mine pc (i'm in the project's directory):
+How the command looks on my pc (i'm in the project's directory):
 ```bash
 mysql -u root -p < src/main/resources/initDB.sql
 mysql -u root -p < src/main/resources/populateDB.sql
@@ -116,7 +116,7 @@ mysql -u root -p < src/main/resources/populateDB.sql
 psql -U <your_user_name> -f <path_to_file_on_your_pc>/initDBForPostgres.sql
 ```
 
-How the command looks on mine pc (i'm in the project's directory):
+How the command looks on my pc (i'm in the project's directory):
 ```bash
 psql -U postgres -f src/main/resources/initDBForPostgres.sql
 ```
