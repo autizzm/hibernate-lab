@@ -96,6 +96,9 @@ Use the following changed hibernate.cfg.xml:
 
 ##### For MySQL:
 
+> [!note]
+> Execute it through CMD, not PowerShell
+
 ```bash
 mysql -u <your_user_name> -p < <path_to_file_on_your_pc>/initDB.sql
 mysql -u <your_user_name> -p < <path_to_file_on_your_pc>/populateDB.sql
